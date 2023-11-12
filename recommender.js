@@ -44,9 +44,15 @@ const similarityCalculator = (userA, userB) => {
 	const avgRatingUserA = getAvgRatings(sumRatingsUserA);
 	const avgRatingUserB = getAvgRatings(sumRatingsUserB);
 
-	const numeratorSum = 
+	const numeratorSum = Object.values(data[userA]).reduce((acc, curr, i) => {
+		if (curr != -1) {
+			return acc + (curr - avgRatingUserA) * (Object.values(data[userB])[i] - avgRatingUserB);
+		} else {
+			return acc + 0;
+		}
+	}, 0);
 
-	console.log(sumRatingsUserA, sumRatingsUserB, avgRatingUserA, avgRatingUserB);
+	console.log(numeratorSum);
 };
 
 const getSumRatings = (data) => Object.values(data).filter((item) => item != -1);
