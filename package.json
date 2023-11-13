@@ -12,5 +12,8 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.9.0"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security"
   }
 }
